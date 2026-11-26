@@ -1,10 +1,11 @@
 {
   "name": "llm-proxy",
   "type": "module",
+  "packageManager": "bun@1.4.5",
   "scripts": {
     "dev": "bun run --hot src/server.ts",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint . && markdownlint-cli2 \"**/*.md\"",
+    "lint": "eslint . && markdownlint-cli2 \"**/*.md\" && cspell --no-progress --gitignore --dot \"**\"",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "prepare": "husky"
@@ -18,7 +19,8 @@
       "markdownlint-cli2 --fix",
       "prettier --write"
     ],
-    "*.{js,json,jsonc,yaml,yml}": "prettier --write"
+    "*.{js,json,jsonc,yaml,yml}": "prettier --write",
+    "*": "cspell --no-progress --no-must-find-files"
   },
   "dependencies": {
     "hono": "^4.13.16"
@@ -26,6 +28,7 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/bun": "^1.4.5",
+    "cspell": "^10.5.2",
     "eslint": "^10.15.0",
     "husky": "^9.1.7",
     "lint-staged": "^17.6.2",

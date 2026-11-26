@@ -1,0 +1,20 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "useGitignore": true,
+  "ignorePaths": [
+    ".git",
+    "bun.lock",
+    ".github/workflows/actions.lock",
+    "node_modules"
+  ],
+  "words": [
+    "bunx",
+    "esac",
+    "frontmatter",
+    "healthcheck",
+    "modelfile",
+    "ollama",
+    "qwen"
+  ]
+}

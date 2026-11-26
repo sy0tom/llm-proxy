@@ -1,0 +1,62 @@
+name: Auto-merge
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [opened, reopened, synchronize, labeled]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: automerge-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  automerge:
+    if: >-
+      github.event.pull_request.user.login == 'renovate[bot]' ||
+      github.event.pull_request.user.login == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      # Renovate は renovate.json の packageRules でラベルを付ける。Dependabot はここで付ける
+      - id: metadata
+        if: github.event.pull_request.user.login == 'dependabot[bot]'
+        uses: dependabot/fetch-metadata@v3.1.0
+      - name: Label Dependabot updates
+        if: github.event.pull_request.user.login == 'dependabot[bot]'
+        run: |
+          case "$UPDATE_TYPE" in
+            version-update:semver-major) labels=major ;;
+            version-update:semver-minor)
+              labels=minor
+              # 0.x の minor は破壊的変更を含みうるため手動でレビューする
+              case "${PREVIOUS_VERSION#v}" in 0.*) labels=minor,manual-merge ;; esac
+              ;;
+            version-update:semver-patch) labels=patch ;;
+            *) exit 0 ;;
+          esac
+          gh pr edit "$PR_URL" --add-label "$labels"
+        env:
+          UPDATE_TYPE: ${{ steps.metadata.outputs.update-type }}
+          PREVIOUS_VERSION: ${{ steps.metadata.outputs.previous-version }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ github.token }}
+      # required status checks が成功するまで GitHub がマージを待つ
+      - name: Enable auto-merge for minor and patch updates
+        run: |
+          labels=$(gh pr view "$PR_URL" --json labels --jq '[.labels[].name] | join(",")')
+          case ",$labels," in
+            *,manual-merge,* | *,major,*) exit 0 ;;
+            *,minor,* | *,patch,*) ;;
+            *) exit 0 ;;
+          esac
+          gh pr merge "$PR_URL" --auto --squash
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ github.token }}
