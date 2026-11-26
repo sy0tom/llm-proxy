@@ -1,0 +1,25 @@
+version: 2
+updates:
+  # 通常の更新は Renovate が担当する。このエントリは security updates の設定(ラベル)にだけ使う
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 0
+    labels:
+      - dependencies
+      - dependabot
+      - github-actions
+      - security
+
+  # 通常の更新は Renovate が担当する。このエントリは security updates の設定(ラベル)にだけ使う
+  - package-ecosystem: bun
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 0
+    labels:
+      - dependencies
+      - dependabot
+      - bun
+      - security

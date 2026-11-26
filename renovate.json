@@ -1,6 +1,38 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
+  "extends": ["config:recommended"],
+  "constraints": {
+    "ghActionsLock": "v0.5.1"
+  },
+  "minimumReleaseAge": "3 days",
+  "internalChecksFilter": "strict",
+  "labels": ["dependencies", "renovate"],
+  "vulnerabilityAlerts": {
+    "enabled": false
+  },
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["major"],
+      "addLabels": ["major"]
+    },
+    {
+      "matchUpdateTypes": ["minor"],
+      "addLabels": ["minor"]
+    },
+    {
+      "matchUpdateTypes": ["patch"],
+      "addLabels": ["patch"]
+    },
+    {
+      "description": "0.x の minor は破壊的変更を含みうるため、自動マージの workflow の対象から外す",
+      "matchCurrentValue": "/^[~^]?0\\./",
+      "matchUpdateTypes": ["minor"],
+      "addLabels": ["manual-merge"]
+    },
+    {
+      "description": "typescript-eslint が TypeScript 7 に対応するまで 6 系に留める",
+      "matchPackageNames": ["typescript"],
+      "allowedVersions": "<7"
+    }
   ]
 }
