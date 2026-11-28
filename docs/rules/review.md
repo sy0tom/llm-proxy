@@ -24,6 +24,7 @@
 
 - push前に、Critを使ってlocalで対話式にレビューする。
 - 実装したAIエージェントとcontextを分けるため、レビューはsubagentで行う。
+- 機能仕様の受け入れ条件との整合は、subagentの`sdd-spec-reviewer`で確認する。
 
 ## 開発者レビュー
 
