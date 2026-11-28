@@ -25,16 +25,17 @@ bun run format      # Prettierでの整形
 
 必要になったときに読む。
 
-| いつ読むか                           | 資料                                                                                                         |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| 要件、作業のStepと完了条件を確認する | [docs/requirements/REQUIREMENTS.md](docs/requirements/REQUIREMENTS.md)                                       |
-| 機能の仕様と要求の対応を確認する     | [docs/specs/README.md](docs/specs/README.md)                                                                 |
-| 構成、技術スタックを確認する         | [docs/architectures/README.md](docs/architectures/README.md)                                                 |
-| ファイルを追加・移動する             | [docs/directory.md](docs/directory.md)                                                                       |
-| API、設定ファイルを変更する          | [docs/designs/README.md](docs/designs/README.md)                                                             |
-| コードを書く                         | [docs/rules/code-convention.md](docs/rules/code-convention.md)、[docs/rules/naming.md](docs/rules/naming.md) |
-| テストを書く                         | [docs/rules/test-policy.md](docs/rules/test-policy.md)                                                       |
-| ブランチ、commit、PRを扱う           | [docs/rules/git.md](docs/rules/git.md)                                                                       |
-| レビューする、レビューを依頼する     | [docs/rules/review.md](docs/rules/review.md)                                                                 |
-| skills、subagentsを追加・変更する    | [docs/harness.md](docs/harness.md)                                                                           |
-| project固有の用語がわからない        | [docs/glossary.md](docs/glossary.md)                                                                         |
+| いつ読むか                                  | 資料                                                                                                         |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| 要件、作業のStepと完了条件を確認する        | [docs/requirements/REQUIREMENTS.md](docs/requirements/REQUIREMENTS.md)                                       |
+| Stepを進める、機能仕様、ADR、作業計画を書く | [docs/rules/sdd.md](docs/rules/sdd.md)                                                                       |
+| 機能の仕様と要求の対応を確認する            | [docs/specs/README.md](docs/specs/README.md)                                                                 |
+| 構成、技術スタックを確認する                | [docs/architectures/README.md](docs/architectures/README.md)                                                 |
+| ファイルを追加・移動する                    | [docs/directory.md](docs/directory.md)                                                                       |
+| API、設定ファイルを変更する                 | [docs/designs/README.md](docs/designs/README.md)                                                             |
+| コードを書く                                | [docs/rules/code-convention.md](docs/rules/code-convention.md)、[docs/rules/naming.md](docs/rules/naming.md) |
+| テストを書く                                | [docs/rules/test-policy.md](docs/rules/test-policy.md)                                                       |
+| ブランチ、commit、PRを扱う                  | [docs/rules/git.md](docs/rules/git.md)                                                                       |
+| レビューする、レビューを依頼する            | [docs/rules/review.md](docs/rules/review.md)                                                                 |
+| skills、subagentsを追加・変更する           | [docs/harness.md](docs/harness.md)                                                                           |
+| project固有の用語がわからない               | [docs/glossary.md](docs/glossary.md)                                                                         |

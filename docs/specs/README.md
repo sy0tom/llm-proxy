@@ -3,7 +3,8 @@
 ## 目的
 
 [要求定義](../requirements/REQUIREMENTS.md)の要求と、実現する機能の対応をまとめる。
-詳細な仕様が必要になった機能は、`FC-xxx.md`または`NFC-xxx.md`を作成してリンクする。
+Stepで実装する機能は、実装の前に`FC-xxx.md`または`NFC-xxx.md`を作成し、`No.`からリンクする。
+作る基準と書き方は[SDDルール](../rules/sdd.md#機能仕様)に従う。
 
 ## 機能要件
 
