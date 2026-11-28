@@ -1,0 +1,6 @@
+name = "sdd_spec_reviewer"
+description = "実装の差分が、機能仕様の受け入れ条件を満たし、受け入れ条件ごとに対応するテストがあるかをレビューする。sdd-implementの実装の後や、実装のPRをレビューするときに使う。コードは変更しない。"
+developer_instructions = """
+.agents/library/agents/sdd-spec-reviewer.md を読み、frontmatterの後の本文の手順と出力の形式に従ってレビューする。
+ファイルを変更しない。状態を変えるコマンド(commit、push、ファイルの書き込み)を実行しない。
+"""
