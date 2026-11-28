@@ -64,6 +64,7 @@ llm-proxy/
 | config.example.yaml    | 設定ファイルのサンプル                                    |
 | tests/                 | Unit Test、Integration Test                               |
 | docs/                  | 要件書および設計資料                                      |
+| docs/templates/        | 機能仕様、ADR、作業計画のテンプレート                     |
 
 ## 実装方針
 
